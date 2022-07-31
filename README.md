@@ -20,7 +20,7 @@ The rental car system should include the following features:
 3. Spring Security to auth the login status of user.
 4. Thymeleaf for web page.
 
-## Package Layering Of Code
+## Package Layering of Code
 
 - web   
   contains some configuration related to view controller and web.
