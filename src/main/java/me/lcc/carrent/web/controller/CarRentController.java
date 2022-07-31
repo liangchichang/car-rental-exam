@@ -23,6 +23,9 @@ public class CarRentController {
     @Autowired
     private CarRentService carRentService;
 
+    /**
+     * query car and stock information to show
+     */
     @RequestMapping("/rentPage")
     public ModelAndView mainPage() {
         List<CarStockInfo> carStockInfos = carRentService.listCarStocks();
@@ -34,6 +37,9 @@ public class CarRentController {
         return mv;
     }
 
+    /**
+     * user do rent a car
+     */
     @PostMapping("/doRent")
     public ModelAndView rentCar(String userId, Integer carId) {
         BusinessBo businessBo = carRentService.rentACar(userId, carId);

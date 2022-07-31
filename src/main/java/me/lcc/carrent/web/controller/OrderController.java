@@ -24,6 +24,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * query orders of a user
+     */
     @GetMapping("/list")
     public ModelAndView listOrders() {
         String userId = LogInContext.getUserId();
@@ -35,6 +38,9 @@ public class OrderController {
         return mv;
     }
 
+    /**
+     * cancel the order
+     */
     @PostMapping("/cancel")
     public ModelAndView cancelOrder(Integer orderId) {
         String userId = LogInContext.getUserId();

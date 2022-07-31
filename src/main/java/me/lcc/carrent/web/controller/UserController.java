@@ -22,6 +22,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * user registration
+     */
     @PostMapping(value = "/register")
     public ModelAndView register(String userId, String password, RedirectAttributes redirectAttributes) {
         BusinessBo businessBo = userService.register(userId, password);
@@ -37,6 +40,9 @@ public class UserController {
         return mv;
     }
 
+    /**
+     * the page for user login failed
+     */
     @RequestMapping("/logInFail")
     public ModelAndView logInFailPage(@RequestAttribute("SPRING_SECURITY_LAST_EXCEPTION") CarRentAuthenticationException exception) {
         ModelAndView mv = new ModelAndView();
