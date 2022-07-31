@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Orders</title>
+</head>
+<body>
+<div>
+    <h2>My Orders</h2>
+    <div>
+        <table th:if="${orders}" style="text-decoration: none;text-align:center">
+            <tr>
+                <th>ID</th>
+                <th>Car model</th>
+                <th>Date</th>
+                <th>status</th>
+                <th>Operation</th>
+            </tr>
+            <tr th:each="order:${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.carModel}"></td>
+                <td th:text="${order.createTime}"></td>
+                <td th:switch="${order.status}">
+                    <span th:case="0">success</span>
+                    <span th:case="1">canceled</span>
+                </td>
+                <td>
+                    <form th:if="${order.status} eq '0'" th:action="@{/order/cancel}" method="post"
+                          onsubmit="submit.disabled=1">
+                        <input type="hidden" th:name="orderId" th:value="${order.id}">
+                        <input type="submit" value="cancel">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="button" value="go back" onclick="location.href='/carRent/rentPage'">
+</div>
+</body>
+</html>

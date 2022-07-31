@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      enabled: true
+      charset: UTF-8
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/car_rent?characterEncoding=UTF-8
+    username: dev
+    password: dev
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:/static/
+
